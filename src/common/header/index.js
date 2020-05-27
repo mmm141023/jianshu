@@ -6,6 +6,11 @@ import {HeaderWrapper,
     TitleNavItem,
     RegisterButton,
     SearchInput,
+    SearchCrumb,
+    SearchSwitch,
+    SearchTitle,
+    SearchItem,
+    SearchItemContainer,
     SearchContainer} from './style'
 import {actionCreators} from './store'
 class Header extends Component {
@@ -28,9 +33,25 @@ class Header extends Component {
                                     onFocus={changeFlagTrue}
                                     onBlur={changeFlagFalse}
                                 >
-
                                 </SearchInput>
-                                <i className="iconfont">&#xe614;</i>
+                                <i className="iconfont search">&#xe614;</i>
+                                <SearchCrumb>
+                                    <SearchTitle>热门搜索</SearchTitle>
+                                    <SearchSwitch><i className="iconfont">&#xe606;</i>换一批</SearchSwitch>
+                                    <SearchItemContainer>
+                                        <SearchItem>英雄联盟</SearchItem>
+                                        <SearchItem>英雄联盟</SearchItem>
+                                        <SearchItem>英雄联盟</SearchItem>
+                                        <SearchItem>英雄联盟</SearchItem>
+                                        <SearchItem>英雄联盟</SearchItem>
+                                        <SearchItem>英雄联盟</SearchItem>
+                                        <SearchItem>英雄联盟</SearchItem>
+                                        <SearchItem>英雄联盟</SearchItem>
+                                        <SearchItem>英雄联盟</SearchItem>
+                                        <SearchItem>英雄联盟</SearchItem>
+                                    </SearchItemContainer>
+
+                                </SearchCrumb>
                             </SearchContainer>
                         </TitleNavBar>
                         <RegisterButton className="reg">注册</RegisterButton>

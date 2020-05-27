@@ -57,7 +57,7 @@ export const SearchContainer = styled.div`
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    .iconfont{
+    .search{
         position: absolute;
         right: 0;
         top: 0;
@@ -80,9 +80,51 @@ export const SearchInput = styled.input.attrs({
     border: none;
     background: #ddd;
     outline: none;
+    transition: all .3s ease-in;
     &.long{
         width: 250px;
     }
+`;
+
+export const SearchCrumb = styled.div`
+    width: 300px;
+    padding: 20px 20px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0,0,0,.4);
+    position: absolute;
+    top: 120%;
+    left: -20px;
+    overflow: hidden;
+`;
+
+export const SearchSwitch = styled.div`
+    cursor: pointer;
+    float: right;
+    .iconfont{
+        margin-right: 6px;
+        font-size: .9em;
+    }
+`;
+export const SearchItemContainer = styled.div`
+    overflow:hidden;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    border-top: solid 1px rgba(0,0,0,.3);
+`;
+export const SearchTitle = styled.div`
+    float: left;
+`;
+export const SearchItem = styled.div`
+    border: solid 1px black;
+    float: left;
+    padding: 7px;
+    border-radius: 3px;
+    cursor: pointer;
+    background: #eee;
+    border: none;
+    margin-top: 10px;
+    margin-left: 10px;
 `;
 
 export const RegisterButton = styled.div`
