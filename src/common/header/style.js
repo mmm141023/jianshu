@@ -80,10 +80,10 @@ export const SearchInput = styled.input.attrs({
     border: none;
     background: #ddd;
     outline: none;
+    &.long{
+        width: 250px;
+    }
 `;
-
-
-
 
 export const RegisterButton = styled.div`
     height: 38px;

@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {connect} from 'react-redux';
 import {HeaderWrapper,
     TitleContainer,
     TitleNavBar,
@@ -6,8 +7,11 @@ import {HeaderWrapper,
     RegisterButton,
     SearchInput,
     SearchContainer} from './style'
+import {actionCreators} from './store'
 class Header extends Component {
+
     render() {
+        const {searchFlag, changeFlagTrue, changeFlagFalse} = this.props
         return (
             <div>
                 <HeaderWrapper>
@@ -19,10 +23,15 @@ class Header extends Component {
                             <TitleNavItem className="right">登录</TitleNavItem>
                             <TitleNavItem className="right"><i className="iconfont">&#xe636;</i></TitleNavItem>
                             <SearchContainer>
-                                <SearchInput></SearchInput>
+                                <SearchInput
+                                    className={searchFlag ? 'long' : ''}
+                                    onFocus={changeFlagTrue}
+                                    onBlur={changeFlagFalse}
+                                >
+
+                                </SearchInput>
                                 <i className="iconfont">&#xe614;</i>
                             </SearchContainer>
-
                         </TitleNavBar>
                         <RegisterButton className="reg">注册</RegisterButton>
                         <RegisterButton className="write"><i className="iconfont">&#xe6e5;</i>写文章</RegisterButton>
@@ -33,4 +42,22 @@ class Header extends Component {
     }
 }
 
-export default Header
+const mapState = (state) => {
+    return {
+        searchFlag: state.getIn(['header', 'searchFlag'])
+    }
+}
+
+const mapDispatch = (dispatch) => {
+    return {
+        changeFlagTrue() {
+            dispatch(actionCreators.changeFlagTrue())
+        },
+        changeFlagFalse() {
+            dispatch(actionCreators.changeFlagFalse())
+        }
+    }
+}
+
+
+export default connect(mapState, mapDispatch)(Header)
