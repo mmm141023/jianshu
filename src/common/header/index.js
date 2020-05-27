@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-import {HeaderWrapper,
+import {
+    HeaderWrapper,
     TitleContainer,
     TitleNavBar,
     TitleNavItem,
@@ -11,17 +12,20 @@ import {HeaderWrapper,
     SearchTitle,
     SearchItem,
     SearchItemContainer,
-    SearchContainer} from './style'
+    SearchContainer
+} from './style'
 import {actionCreators} from './store'
+
 class Header extends Component {
 
     render() {
-        const {searchFlag, changeFlagTrue, changeFlagFalse} = this.props
+        const {searchFlag,mouseFlag, changeFlagTrue, changeFlagFalse, whenMouseEnter,whenMouseLeave} = this.props
         return (
             <div>
                 <HeaderWrapper>
                     <TitleContainer>
-                        <img className="logo" src="//cdn2.jianshu.io/assets/web/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt=""/>
+                        <img className="logo"
+                             src="//cdn2.jianshu.io/assets/web/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt=""/>
                         <TitleNavBar>
                             <TitleNavItem className="left active">首页</TitleNavItem>
                             <TitleNavItem className="left">下载App</TitleNavItem>
@@ -34,8 +38,11 @@ class Header extends Component {
                                     onBlur={changeFlagFalse}
                                 >
                                 </SearchInput>
-                                <i className="iconfont search">&#xe614;</i>
-                                <SearchCrumb>
+                                <i className={searchFlag ? 'iconfont search show' : 'iconfont search'}>&#xe614;</i>
+                                <SearchCrumb className={(searchFlag || mouseFlag) ? 'show' : ''}
+                                             onMouseEnter={whenMouseEnter}
+                                             onMouseLeave={whenMouseLeave}
+                                >
                                     <SearchTitle>热门搜索</SearchTitle>
                                     <SearchSwitch><i className="iconfont">&#xe606;</i>换一批</SearchSwitch>
                                     <SearchItemContainer>
@@ -65,7 +72,8 @@ class Header extends Component {
 
 const mapState = (state) => {
     return {
-        searchFlag: state.getIn(['header', 'searchFlag'])
+        searchFlag: state.getIn(['header', 'searchFlag']),
+        mouseFlag: state.getIn(['header', 'mouseFlag'])
     }
 }
 
@@ -76,6 +84,12 @@ const mapDispatch = (dispatch) => {
         },
         changeFlagFalse() {
             dispatch(actionCreators.changeFlagFalse())
+        },
+        whenMouseEnter() {
+            dispatch(actionCreators.whenMouseEnter())
+        },
+        whenMouseLeave() {
+            dispatch(actionCreators.whenMouseLeave())
         }
     }
 }

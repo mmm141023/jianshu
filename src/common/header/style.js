@@ -67,6 +67,10 @@ export const SearchContainer = styled.div`
         width: 40px;
         height: 40px;
         border-radius: 50%;
+        transition: all .6s ease-in;
+    }
+    .show{
+        background: #aaa;
     }
 `;
 
@@ -87,14 +91,18 @@ export const SearchInput = styled.input.attrs({
 `;
 
 export const SearchCrumb = styled.div`
+    opacity: 0;
     width: 300px;
     padding: 20px 20px;
-    background: white;
     box-shadow: 0 0 5px rgba(0,0,0,.4);
     position: absolute;
     top: 120%;
     left: -20px;
     overflow: hidden;
+    &.show{
+        background: white;
+        opacity: 1;
+    }
 `;
 
 export const SearchSwitch = styled.div`
