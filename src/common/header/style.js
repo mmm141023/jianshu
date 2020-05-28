@@ -91,7 +91,7 @@ export const SearchInput = styled.input.attrs({
 `;
 
 export const SearchCrumb = styled.div`
-    opacity: 0;
+    display: none;
     width: 300px;
     padding: 20px 20px;
     box-shadow: 0 0 5px rgba(0,0,0,.4);
@@ -101,7 +101,7 @@ export const SearchCrumb = styled.div`
     overflow: hidden;
     &.show{
         background: white;
-        opacity: 1;
+        display: block;
     }
 `;
 
@@ -156,4 +156,89 @@ export const RegisterButton = styled.div`
         color: white;
         background: #EA6F5A;
     }
+`;
+
+export const BodyWrapper = styled.div`
+    width: 960px;
+    display: flex;
+    height: 1020px;
+    margin: 0 auto;
+`;
+
+export const ArticleWrapper = styled.div`
+    flex: 2.5;
+    height: 100%;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+`;
+
+export const ImgWrapper = styled.div`
+    width: 100%;
+    height: 270px;
+    overflow: hidden;
+    .img{
+        width: 100%;
+        height:100%;
+    }
+`;
+export const ArticleSection = styled.div`
+    flex: 1;
+    padding: 40px 20px;
+`;
+export const ArticleItem = styled.div`
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #aaa;
+    border-bottom: solid 1px #ddd;
+    .h2{
+        font-weight:     bold;
+        font-size: 1.3em;
+        
+    }
+    .h3{
+        margin-top: 30px;
+        float: left;
+        display: block;
+        width: 358px;
+    }
+    .img{
+        float: right;
+        width: 150px;
+        height: 100px;
+        margin-right: 20px;
+    }
+`;
+
+export const ReadMore = styled.div`
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background: #ddd;
+    line-height: 40px;
+    text-align: center;
+    margin-left: 20px;
+    font-size: 1.8em;
+    cursor: pointer;
+`;
+export const RecommendWrapper = styled.div`
+    flex: 1.5;
+    height: 100%;
+    padding-top: 30px;
+`;
+
+export const Recommend = styled.div`
+    width: 100%;
+    margin-top: 40px;
+`;
+
+export const RecommendItem = styled.div`
+    width: 100%;
+    height: 70px;
+    background: url('//cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png');
+    background-size: contain;
+    box-sizing: border-box;
+    padding: 10px;
 `;

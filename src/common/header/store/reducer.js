@@ -2,7 +2,8 @@ import {fromJS} from "immutable";
 import {constants} from './index'
 const initState = fromJS({
     searchFlag: false,
-    mouseFlag: false
+    mouseFlag: false,
+    crombList: []
 })
 export default (state = initState, action) => {
     switch (action.type) {
@@ -14,6 +15,8 @@ export default (state = initState, action) => {
             return state.set('mouseFlag', true)
         case constants.WHEN_MOUSE_LEAVE:
             return state.set('mouseFlag', false)
+        case constants.INIT_CROMBS:
+            return state.set('crombList', action.data)
         default:
             break
     }
