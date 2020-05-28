@@ -15,6 +15,7 @@ import {
     SearchContainer,
 } from './style'
 import {actionCreators} from './store'
+import {Link} from "react-router-dom";
 
 class Header extends Component {
 
@@ -24,8 +25,10 @@ class Header extends Component {
             <div>
                 <HeaderWrapper>
                     <TitleContainer>
-                        <img className="logo"
-                             src="//cdn2.jianshu.io/assets/web/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt=""/>
+                        <Link to={'/'}>
+                            <img className="logo"
+                                 src="//cdn2.jianshu.io/assets/web/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt=""/>
+                        </Link>
                         <TitleNavBar>
                             <TitleNavItem className="left active">首页</TitleNavItem>
                             <TitleNavItem className="left">下载App</TitleNavItem>

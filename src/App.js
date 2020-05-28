@@ -7,9 +7,9 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header/>
                 <BrowserRouter>
                     <div>
+                        <Header/>
                         <Route path="/" exact render={() => <Home></Home>}></Route>
                         <Route path="/detail" exact render={() => <Detail></Detail>}></Route>
                     </div>
